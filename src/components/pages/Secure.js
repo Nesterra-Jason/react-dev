@@ -72,11 +72,14 @@ class App extends Component {
 
             return (
                 <div className='App'>
-                    <h4>
-                        Report ID: {this.state.reportId} <br></br>
-                        Embed Token: {this.state.embedToken} <br></br>
-                        Embed URL: {this.state.embedUrl} <br></br>
-                    </h4>
+                    <Report
+                    id={this.state.embedConfig.id}
+                    embedUrl={this.state.embedConfig.embedUrl}
+                    accessToken={this.state.embedConfig.accessToken}
+                    filterPaneEnabled={true}
+                    navContentPaneEnabled={false}
+                    onEmbedded={this.onEmbedded}
+                    />
                 </div>
 
             );
