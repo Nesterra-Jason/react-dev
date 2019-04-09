@@ -9,7 +9,7 @@ import Login from './components/auth/Login'
 
 import './App.css';
 
-function onAuthRequired({history}) {
+function onAuthRequired({ history }) {
   history.push('/login');
 }
 
@@ -18,23 +18,23 @@ class App extends Component {
     return (
       <Router>
         <Security issuer='https://nesterra.okta.com/oauth2/default'
-                  client_id='0oaf2bdrxmiPwI1If356'
-                  redirect_uri={window.location.origin + '/implicit/callback'}
-                  onAuthRequired={onAuthRequired} >
+          client_id='0oaf2bdrxmiPwI1If356'
+          redirect_uri={window.location.origin + '/implicit/callback'}
+          onAuthRequired={onAuthRequired} >
           <div className="App">
             <Navbar />
             <div className="container">
-            <Route path="/" exact={true} component={Home} />
-            <SecureRoute path="/secure" exact={true} component={Secure} />
-            <Route 
-              path="/login" 
-              render={() => (
-              <Login baseUrl='https://nesterra.okta.com' />
-              )} 
-            />
-            <Route path='/implicit/callback' component={ImplicitCallback} />
+              <Route path="/" exact={true} component={Home} />
+              <SecureRoute path="/secure" exact={true} component={Secure} />
+              <Route
+                path="/login"
+                render={() => (
+                  <Login baseUrl='https://nesterra.okta.com' />
+                )}
+              />
+              <Route path='/implicit/callback' component={ImplicitCallback} />
+            </div>
           </div>
-        </div>
         </Security>
       </Router>
     );
